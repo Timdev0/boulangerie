@@ -1,12 +1,5 @@
 <template>
   <div id="sondage">
-    <div class="from-group">
-      <input type="checkbox" id="checkbox" v-model="checked">
-      <label for="checkbox">{{ checked }}</label>
-      <span>J'aime {{ txt }}</span>
-      <img v-if="txt === 'pain au chocolat'" src="../assets/pain-au-chocolat.png" class="img-fluid">
-      <img v-else-if="txt === 'croissant'" src="../assets/croissant.png" class="img-fluid">
-    </div>
     <form>
       <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
@@ -68,18 +61,10 @@
 export default {
   data: function () {
     return {
-      checked: false,
       picked: ''
     }
   },
   computed: {
-    txt () {
-      if (this.checked === false) {
-        return 'pain au chocolat'
-      } else {
-        return 'croissant'
-      }
-    },
     pickedtxt () {
       switch (this.picked) {
         case '1':
