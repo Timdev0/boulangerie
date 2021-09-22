@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <navbar />
-    <router-view/>
+    <div id="main">
+      <router-view/>
+    </div>
     <footbar />
   </div>
 </template>
@@ -24,7 +26,9 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+}
+#main {
+  padding: 2rem 8rem 2rem 8rem;
 }
 </style>

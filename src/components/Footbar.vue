@@ -1,5 +1,7 @@
 <template>
-    <div id="footbar-component">
-        <p>Made with music and coffee</p>
-    </div>
+  <div id="footbar-component">
+    <footer>
+      <span>Made with music and coffee</span>
+    </footer>
+  </div>
 </template>
