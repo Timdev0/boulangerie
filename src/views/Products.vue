@@ -8,18 +8,21 @@
         <h1>{{ product }}</h1>
         <p v-if="inStock > 5">En Stock</p>
         <p v-else-if="inStock <= 5 && inStock > 0">Presque épuisé</p>
-        <p v-else>Artcile épuisé</p>
+        <p v-else
+           :class="{ lineThrought: inStock <= 0 }">
+           Artcile épuisé
+        </p>
         <ul>
           <li v-for="detail in details" :key="detail.detailId">{{ detail.detailText }}</li>
         </ul>
         <div v-for="variant in variants"
-            :key="variant.variantId"
-            class="color-box"
-            :style="{ backgroundColor: variant.variantColor }"
-            @mouseover="updateProduct(variant.variantImage)">
+             :key="variant.variantId"
+             class="color-box"
+             :style="{ backgroundColor: variant.variantColor }"
+             @mouseover="updateProduct(variant.variantImage)">
             <span>{{ variant.variantType }}</span>
         </div>
-        <button v-on:click="addToCart" class="btn btn-primary">Ajouté au panier</button>
+        <button v-on:click="addToCart" class="btn btn-primary" :disabled="inStock<=0">Ajouté au panier</button>
         <button @click="removeToCart" class="btn btn-danger">-</button>
         <div class="cart">
           <p>Panier({{ cart }})</p>
@@ -94,5 +97,9 @@ export default {
   font-size: 1rem;
   border-radius: .25rem;
   line-height: 1.5;
+  }
+
+  .lineThrought{
+    text-decoration: line-through;
   }
 </style>
