@@ -30,5 +30,6 @@ export default {
 }
 #main {
   padding: 2rem 8rem 2rem 8rem;
+  min-height: calc(100vh - 72px - 84px);
 }
 </style>
