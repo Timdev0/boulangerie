@@ -3,7 +3,8 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link> |
         <router-link to="/doc">Doc</router-link> |
-        <router-link to ="/sondage">Sondage</router-link>
+        <router-link to ="/sondage">Sondage</router-link> |
+        <router-link to ="/product">Produit</router-link>
     </div>
 </template>
 
