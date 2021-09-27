@@ -1,5 +1,5 @@
 <template>
-  <div id="product container">
+  <div id="products" class="container">
     <div class="row">
       <div class="product-img col-sm-6">
         <img class="img-fluid" v-bind:src="image" alt="">
@@ -10,10 +10,14 @@
         <p v-else-if="inStock <= 5 && inStock > 0">Presque épuisé</p>
         <p v-else>Artcile épuisé</p>
         <ul>
-          <li v-for="detail in details" :key=detail.detailId>{{ detail.detailText }}</li>
+          <li v-for="detail in details" :key="detail.detailId">{{ detail.detailText }}</li>
         </ul>
-        <div v-for="variant in variants" :key="variant.variantId">
-          <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantType }}</p>
+        <div v-for="variant in variants"
+            :key="variant.variantId"
+            class="color-box"
+            :style="{ backgroundColor: variant.variantColor }"
+            @mouseover="updateProduct(variant.variantImage)">
+            <span>{{ variant.variantType }}</span>
         </div>
         <button v-on:click="addToCart" class="btn btn-primary">Ajouté au panier</button>
         <button @click="removeToCart" class="btn btn-danger">-</button>
@@ -47,12 +51,14 @@ export default {
         {
           variantId: 1000,
           variantType: 'Nature',
-          variantImage: require('../assets/baguette.jpeg')
+          variantImage: require('../assets/baguette.jpeg'),
+          variantColor: '#f8c291'
         },
         {
           variantId: 1001,
           variantType: 'Aux céréales',
-          variantImage: require('../assets/baguette-cereales.jpeg')
+          variantImage: require('../assets/baguette-cereales.jpeg'),
+          variantColor: '#e58e26'
         }
       ]
     }
@@ -62,7 +68,9 @@ export default {
       this.cart += 1
     },
     removeToCart: function () {
-      this.cart -= 1
+      if (this.cart > 0) {
+        this.cart -= 1
+      }
     },
     updateProduct (variantImage) {
       this.image = variantImage
@@ -70,3 +78,21 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.color-box{
+  width: 10rem;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  line-height: 1.5;
+  }
+</style>

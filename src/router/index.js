@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Doc from '../views/Doc.vue'
 import Sondage from '../views/Sondage.vue'
-import Product from '../views/Product.vue'
+import Products from '../views/Products.vue'
 
 Vue.use(VueRouter)
 
@@ -24,9 +24,9 @@ const routes = [
     component: Doc
   },
   {
-    path: '/product',
-    name: 'Product',
-    component: Product
+    path: '/products',
+    name: 'Products',
+    component: Products
   },
   {
     path: '/about',

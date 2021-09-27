@@ -4,7 +4,7 @@
         <router-link to="/about">About</router-link> |
         <router-link to="/doc">Doc</router-link> |
         <router-link to ="/sondage">Sondage</router-link> |
-        <router-link to ="/product">Produit</router-link>
+        <router-link to ="/products">Produits</router-link>
     </div>
 </template>
 
