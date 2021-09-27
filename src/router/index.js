@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Doc from '../views/Doc.vue'
 import Sondage from '../views/Sondage.vue'
 import Products from '../views/Products.vue'
+import notFound from '../views/404.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,15 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: notFound
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 
