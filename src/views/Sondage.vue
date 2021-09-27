@@ -23,7 +23,7 @@
                 les croissants
               </label>
             </div>
-            <div class="form-check disabled">
+            <div class="form-check">
               <input class="form-check-input" type="radio" name="viennoiserie" id="aucun" value="3" v-model="picked">
               <label class="form-check-label" for="aucun">
                 aucun des deux
@@ -37,22 +37,13 @@
           </div>
         </div>
       </fieldset>
-      <div class="form-group row">
-        <div class="col-sm-2">Checkbox</div>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck1">
-            <label class="form-check-label" for="gridCheck1">
-              Example checkbox
-            </label>
-          </div>
-        </div>
-      </div>
+      <!--
       <div class="form-group row">
         <div class="col-sm-10">
           <button type="submit" class="btn btn-primary">Sign in</button>
         </div>
       </div>
+      -->
     </form>
   </div>
 </template>
@@ -68,10 +59,10 @@ export default {
     pickedtxt () {
       switch (this.picked) {
         case '1':
-          return 'Hmmmm Pain au chocolat'
+          return 'Hmmmm pains au chocolat'
 
         case '2':
-          return 'Hmmmm croissant'
+          return 'Hmmmm croissants'
 
         case '3':
           return 'Ah !'
