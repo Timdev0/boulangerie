@@ -4,22 +4,37 @@
     <div class="cart">
       <p>Panier({{ cart.length }})</p>
     </div>
+    <div>
+      <h2>Avis</h2>
+      <p>Aucun avis pour le moment</p>
+      <ul>
+        <li v-for="review in reviews" :key="review.reviewID">
+          <p>{{ review.name }}</p>
+          <p>{{ review.rating }}</p>
+          <p>{{ review.review }}</p>
+        </li>
+      </ul>
+    </div>
+    <product-review @review-submitted="addReview"></product-review>
   </div>
 </template>
 
 <script>
 
 import Product from '../components/Product.vue'
+import ProductReview from '../components/ProductReview.vue'
 
 export default {
   components: {
-    Product
+    Product,
+    ProductReview
   },
 
   data: function () {
     return {
       premium: true,
-      cart: []
+      cart: [],
+      reviews: []
     }
   },
   methods: {
@@ -32,6 +47,9 @@ export default {
           this.cart.splice(i, 1)
         }
       }
+    },
+    addReview (productReview) {
+      this.reviews.push(productReview)
     }
   }
 }

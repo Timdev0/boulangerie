@@ -47,7 +47,7 @@ export default {
     }
   },
 
-  data: function () {
+  data () {
     return {
       category: 'Pain',
       product: 'Baguette',
